@@ -9,10 +9,11 @@ class AffiliateController extends Controller
 {
     public function data(){
         return (new AffiliateService())
-            ->setDublinOffice()
+            ->setDublinOffice('53.333780','-6.253470')
             ->getData()
             ->getDistanceForAllAffiliates()
             ->withinDistance(100)
+            ->selectData(['affiliate_id','name','distance_from_office'])
             ->getSelectedData();
     }
 }

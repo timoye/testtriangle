@@ -7,17 +7,19 @@ class AffiliateService
 {
     public $data;
     public $data_with_distance;
+    public $within_distance_data;
     public $dublin_office;
     public $selected_data;
 
-    public function setDublinOffice(){
+    public function setDublinOffice($lat,$long){
         $this->dublin_office=[
-            'latitude'=>'53.333780',
-            'longitude'=>'-6.253470'
+            'latitude'=>$lat,
+            'longitude'=>$long
         ];
         return $this;
     }
     public function getData(){
+        //$data=file_get_contents('/affiliates.txt');
         $data=file_get_contents('C:\Users\ADMIN\Downloads\testtriangle.com\affiliates.txt');
 
          $data= str_replace("}\n{","},{",$data);
@@ -38,7 +40,15 @@ class AffiliateService
         return $this;
     }
     public function withinDistance($km){
-        $this->selected_data =collect($this->data_with_distance)->where('distance_from_office','<=',$km)->sortBy('affiliate_id');
+        $this->within_distance_data =collect($this->data_with_distance)
+            ->where('distance_from_office','<=',$km);
+        return $this;
+    }
+
+    public function selectData($select){
+        $this->selected_data=$this->within_distance_data->map(function($affiliate) use($select){
+            return collect($affiliate)->only($select);
+        })->sortBy('affiliate_id');
         return $this;
     }
 
