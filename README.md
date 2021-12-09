@@ -7,7 +7,7 @@ Gambling.com Dev Code Test that lists affiliate that lives within 100km of the D
 - Pull this repo
 - Run composer install
 - Run php artisan serve
-- See [Endpoints](#endpoints)
+- See [Routes](#routes)
 
 ## Routes
 
