@@ -8,7 +8,7 @@
                 <div class="card-header">Results</div>
 
                 <div class="card-body">
-                    <table id="cartTable">
+                    <table id="affiliatesTable">
                         <tr>
                             <th>S/N</th>
                             <th>Affiliate ID</th>

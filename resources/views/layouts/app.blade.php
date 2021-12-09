@@ -20,18 +20,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        #cartTable {
+        #affiliatesTable {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
-        #cartTable td, #cartTable th {
+        #affiliatesTable td, #affiliatesTable th {
             border: 1px solid #ddd;
             padding: 8px;
         }
-        #cartTable tr:nth-child(even){background-color: #f2f2f2;}
-        #cartTable tr:hover {background-color: #ddd;}
-        #cartTable th {
+        #affiliatesTable tr:nth-child(even){background-color: #f2f2f2;}
+        #affiliatesTable tr:hover {background-color: #ddd;}
+        #affiliatesTable th {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
