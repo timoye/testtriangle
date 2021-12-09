@@ -18,9 +18,14 @@ class AffiliateService
         ];
         return $this;
     }
-    public function getData(){
+    public function getData($file=null){
         //$data=file_get_contents('/affiliates.txt');
-        $data=file_get_contents('C:\Users\ADMIN\Downloads\testtriangle.com\affiliates.txt');
+        if ($file!=null){
+            $data=file_get_contents($file);
+        }
+        else{
+            $data=file_get_contents('C:\Users\ADMIN\Downloads\testtriangle.com\affiliates.txt');
+        }
 
          $data= str_replace("}\n{","},{",$data);
 
@@ -48,12 +53,12 @@ class AffiliateService
     public function selectData($select){
         $this->selected_data=$this->within_distance_data->map(function($affiliate) use($select){
             return collect($affiliate)->only($select);
-        })->sortBy('affiliate_id');
+        })->sortBy('affiliate_id')->toArray();
         return $this;
     }
 
     public function getSelectedData(){
-        return $this->selected_data;
+        return array_values(array_unique($this->selected_data,SORT_REGULAR));
     }
 
 }

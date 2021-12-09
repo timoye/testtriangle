@@ -16,4 +16,22 @@ class AffiliateController extends Controller
             ->selectData(['affiliate_id','name','distance_from_office'])
             ->getSelectedData();
     }
+
+    public function form(){
+        return view('form');
+    }
+
+    public function submitForm(Request $request){
+        $request->validate([
+            'file'=>'required|file'
+        ]);
+       return $data= (new AffiliateService())
+            ->setDublinOffice('53.333780','-6.253470')
+            ->getData($request->file)
+            ->getDistanceForAllAffiliates()
+            ->withinDistance(100)
+            ->selectData(['affiliate_id','name','distance_from_office'])
+            ->getSelectedData();
+        return view('results',compact('data'));
+    }
 }
