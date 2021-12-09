@@ -36,10 +36,16 @@ The Results page will be displayed
 This page shows a table containing the list of Affiliates within 100km to the office 
 
 
-### Get Selected Affiliate
+### Get Selected Affiliates
 
 This is a get endpoint, it loads .txt file from inside the app and returns the selected affiliates in JSON
 
 
 
 
+## Tests
+
+To run tests, run
+  ```json
+php artisan test
+  ```
