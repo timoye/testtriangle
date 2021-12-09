@@ -38,7 +38,7 @@ class AffiliateService
         return $this;
     }
     public function withinDistance($km){
-        $this->selected_data =collect($this->data_with_distance)->where('distance_from_office','<=',$km);
+        $this->selected_data =collect($this->data_with_distance)->where('distance_from_office','<=',$km)->sortBy('affiliate_id');
         return $this;
     }
 
