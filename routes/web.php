@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\AffiliateController::class, 'form'])->name('home');
-Route::post('/', [App\Http\Controllers\AffiliateController::class, 'submitForm'])->name('submit.form');
+Route::post('/results', [App\Http\Controllers\AffiliateController::class, 'submitForm'])->name('submit.form');
 
