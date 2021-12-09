@@ -25,7 +25,7 @@ class AffiliateController extends Controller
         $request->validate([
             'file'=>'required|file'
         ]);
-       return $data= (new AffiliateService())
+       $data= (new AffiliateService())
             ->setDublinOffice('53.333780','-6.253470')
             ->getData($request->file)
             ->getDistanceForAllAffiliates()
