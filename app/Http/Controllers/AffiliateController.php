@@ -11,6 +11,8 @@ class AffiliateController extends Controller
         return (new AffiliateService())
             ->setDublinOffice()
             ->getData()
-            ->withinDistance(100);
+            ->getDistanceForAllAffiliates()
+            ->withinDistance(100)
+            ->getSelectedData();
     }
 }
