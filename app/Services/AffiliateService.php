@@ -19,12 +19,11 @@ class AffiliateService
         return $this;
     }
     public function getData($file=null){
-        //$data=file_get_contents('/affiliates.txt');
         if ($file!=null){
             $data=file_get_contents($file);
         }
         else{
-            $data=file_get_contents('C:\Users\ADMIN\Downloads\testtriangle.com\affiliates.txt');
+            $data=file_get_contents(base_path('public\affiliates.txt'));
         }
 
          $data= str_replace("}\n{","},{",$data);
